@@ -3,6 +3,8 @@ package tp1;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		/*
 		MySimpleLinkedList<Integer> listaNum = new MySimpleLinkedList<Integer>();
 		listaNum.insertLast(9);
 		listaNum.insertFront(5);
@@ -12,5 +14,16 @@ public class Main {
 		listaNum.insertLast(4);
 		System.out.println(listaNum.toString());
 		System.out.println("Tamaño: " + listaNum.size());
+		*/
+		
+		Stack<Integer> pila = new Stack<Integer>();
+		pila.push(9);
+		pila.push(7);
+		pila.push(3);
+		pila.push(2);
+		pila.reverse();
+		System.out.println(pila.top());
+		
 		}
+		
 }

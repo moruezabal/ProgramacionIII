@@ -4,24 +4,30 @@ public class Stack<T> {
 	private MySimpleLinkedList<T> list;
 	
 	public Stack(){
-		this.list = null;
+		this.list = new MySimpleLinkedList<T>();
 	}
 	
 	public void push(T o) {
-		//TODO
-	};
+		this.list.insertFront(o);
+	}
 	
 	public T pop() {
-		//TODO
-		return null;	
+		return this.list.extractFront();	
 	}
 	
 	public T top() {
-		//TODO
-		return null;
+		return this.list.get(0);
 	}
 
 	public void reverse() {
-		//TODO
+		MySimpleLinkedList<T> aux = new MySimpleLinkedList<>();
+		for(int i = 0; i<this.list.size(); i++) {
+			aux.insertFront(this.list.get(i));
+		}
+		this.list = aux;
+	}
+	
+	public String toString() {
+		return this.list.toString();
 	}
 }
