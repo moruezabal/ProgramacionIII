@@ -4,14 +4,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		MySimpleLinkedList<Integer> listaNum = new MySimpleLinkedList<Integer>();
-		listaNum.extractFront();
+		listaNum.insertLast(9);
 		listaNum.insertFront(5);
-		listaNum.insertFront(9);
-		listaNum.insertFront(5);
-		listaNum.insertFront(9);
-		System.out.println(listaNum.size());
-		listaNum.extractFront();
-		System.out.println(listaNum.size());
+		listaNum.insertLast(3);
 		System.out.println(listaNum.toString());
+		listaNum.extractFront();
+		listaNum.insertLast(4);
+		System.out.println(listaNum.toString());
+		System.out.println("Tamaño: " + listaNum.size());
 		}
 }

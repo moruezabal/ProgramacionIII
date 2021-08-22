@@ -3,11 +3,12 @@ package tp1;
 public class MySimpleLinkedList<T> {
 	
 	private Node<T> first;
+	private Node<T> last;
 	private int size;
 	
 	public MySimpleLinkedList() {
 		this.first = null;
-		//this.last --> for insertLast
+		this.last = null;
 		this.size = 0;
 	}
 	
@@ -15,6 +16,9 @@ public class MySimpleLinkedList<T> {
 		Node<T> tmp = new Node<T>(info,null);
 		tmp.setNext(this.first);
 		this.first = tmp;
+		if (this.first.getNext() == null) {
+			this.last = this.first;
+		}
 		size++;
 	}
 	
@@ -22,12 +26,29 @@ public class MySimpleLinkedList<T> {
 		if(!this.isEmpty()) {
 			T info = this.first.getInfo();
 			this.first = this.first.getNext();
+			if (this.first == null) {
+				this.last = null;
+			}
+			else if (this.first.getNext() == null) {
+				this.last = this.first;
+			}
 			size--;
 			return info;	
 		}
 		return null;
 	}
-
+	
+	public void insertLast(T info) {
+		Node<T> tmp = new Node<T>(info,null);
+		if (this.last != null) {
+			this.last.setNext(tmp);
+		} else {
+			this.first = tmp;
+		}
+		this.last = tmp;
+		size++;
+		
+	}
 	public boolean isEmpty() {
 		return this.first == null;
 	}
