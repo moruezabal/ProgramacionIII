@@ -3,22 +3,29 @@ package tp1;
 public class MySimpleLinkedList<T> {
 	
 	private Node<T> first;
+	private int size;
 	
 	public MySimpleLinkedList() {
 		this.first = null;
 		//this.last --> for insertLast
+		this.size = 0;
 	}
 	
 	public void insertFront(T info) {
 		Node<T> tmp = new Node<T>(info,null);
 		tmp.setNext(this.first);
 		this.first = tmp;
+		size++;
 	}
 	
-	public T extractFront() {		
-		T info = this.first.getInfo();
-		this.first = this.first.getNext();
-		return info;
+	public T extractFront() {
+		if(!this.isEmpty()) {
+			T info = this.first.getInfo();
+			this.first = this.first.getNext();
+			size--;
+			return info;	
+		}
+		return null;
 	}
 
 	public boolean isEmpty() {
@@ -41,13 +48,7 @@ public class MySimpleLinkedList<T> {
 	}
 	
 	public int size() {
-		int _size = 0;
-		Node <T> cursor = this.first;
-		while(cursor != null) {
-			_size++;
-			cursor = cursor.getNext();
-		}
-		return _size;
+		return this.size;
 	}
 	
 	@Override
