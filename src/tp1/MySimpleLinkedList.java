@@ -72,6 +72,19 @@ public class MySimpleLinkedList<T> {
 		return this.size;
 	}
 	
+	public int indexOf(T o) {
+		Node <T> cursor = this.first;
+		int index = 0;
+		for (int i= 0; i< this.size(); i++) {
+			if(cursor.getInfo() == o) {
+				return index;
+			}
+			cursor = cursor.getNext();
+			index++;
+		}
+		return -1;
+	}
+	
 	@Override
 	public String toString() {
 		String content = "";
