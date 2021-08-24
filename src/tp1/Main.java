@@ -14,13 +14,11 @@ public class Main {
 		System.out.println(listaNum.indexOf(8));
 		
 		
-		/*Stack<Integer> pila = new Stack<Integer>();
-		pila.push(9);
-		pila.push(7);
-		pila.push(3);
-		pila.push(2);
-		pila.reverse();
-		System.out.println(pila.top()); */
+		MyIterator<Integer> it1 = listaNum.iterator();
+		while(it1.hasNext()) {
+			int valor = it1.next();
+			System.out.println(valor);
+		}
 		
 		}
 		
