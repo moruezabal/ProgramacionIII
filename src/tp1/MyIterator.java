@@ -21,5 +21,9 @@ public class MyIterator<T> implements Iterator<T> {
 		this.cursor = this.cursor.getNext();
 		return info;
 	}
+	
+	public T current() {
+		return this.cursor.getInfo();
+	}
 
 }
