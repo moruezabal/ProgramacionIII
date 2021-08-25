@@ -1,7 +1,5 @@
 package tp1;
 
-import java.util.Iterator;
-
 public class MySimpleLinkedList<T> implements Iterable<T>{
 	
 	private Node<T> first;
