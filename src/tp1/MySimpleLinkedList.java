@@ -13,11 +13,14 @@ public class MySimpleLinkedList<T> implements Iterable<T>{
 	}
 	
 	public void insertFront(T info) {
-		Node<T> tmp = new Node<T>(info,null);
+		Node<T> tmp = new Node<T>(info,null,null);
 		tmp.setNext(this.first);
 		this.first = tmp;
 		if (this.first.getNext() == null) {
 			this.last = this.first;
+		}
+		else {
+			this.first.getNext().setPrevious(tmp);
 		}
 		size++;
 	}
@@ -26,6 +29,7 @@ public class MySimpleLinkedList<T> implements Iterable<T>{
 		if(!this.isEmpty()) {
 			T info = this.first.getInfo();
 			this.first = this.first.getNext();
+			this.first.setPrevious(null);
 			if (this.first == null) {
 				this.last = null;
 			}
@@ -39,8 +43,9 @@ public class MySimpleLinkedList<T> implements Iterable<T>{
 	}
 	
 	public void insertLast(T info) {
-		Node<T> tmp = new Node<T>(info,null);
+		Node<T> tmp = new Node<T>(info,null,null);
 		if (this.last != null) {
+			tmp.setPrevious(this.last);
 			this.last.setNext(tmp);
 		} else {
 			this.first = tmp;
@@ -92,6 +97,16 @@ public class MySimpleLinkedList<T> implements Iterable<T>{
 		while(cursor != null) {
 			content += cursor.getInfo() + " ";
 			cursor = cursor.getNext();
+		}
+		return content;
+	}
+	
+	public String toStringReverse() {
+		String content = "";
+		Node <T> cursor = this.last;
+		while(cursor != null) {
+			content += cursor.getInfo() + " ";
+			cursor = cursor.getPrevious();
 		}
 		return content;
 	}

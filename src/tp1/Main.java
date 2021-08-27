@@ -6,17 +6,20 @@ public class Main {
 			
 		MySimpleLinkedList<Integer> listaNum1 = new MySimpleLinkedList<Integer>();
 		for(int i = 0; i < 5; i++) {
-			listaNum1.insertLast((int)Math.floor(Math.random()*(10)+1));
+			int random = (int)Math.floor(Math.random()*9);
+			System.out.println(random);
+			listaNum1.insertLast(random);
 		}
 		System.out.println(listaNum1.toString());
+		System.out.println(listaNum1.toStringReverse());
 		
-		MySimpleLinkedList<Integer> listaNum2 = new MySimpleLinkedList<Integer>();
-		for(int i = 0; i < 5; i++) {
-			listaNum2.insertLast((int)Math.floor(Math.random()*9));
-		}
-		System.out.println(listaNum2.toString());
-		
-		System.out.println(primeraSiSegundaNo(listaNum1, listaNum2).toString());	
+//		MySimpleLinkedList<Integer> listaNum2 = new MySimpleLinkedList<Integer>();
+//		for(int i = 0; i < 5; i++) {
+//			listaNum2.insertLast((int)Math.floor(Math.random()*9));
+//		}
+//		System.out.println(listaNum2.toString());
+//		
+//		System.out.println(primeraSiSegundaNo(listaNum1, listaNum2).toString());	
 	}
 	
 	public static MySimpleLinkedList<Integer> listaEnComunOrd(MySimpleLinkedList<Integer> l1, MySimpleLinkedList<Integer>l2){
