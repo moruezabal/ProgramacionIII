@@ -116,4 +116,8 @@ public class MySimpleLinkedList<T> implements Iterable<T>{
 		return new MyIterator<T>(this.first);
 	}
 	
+	public MyIterator<T> iteratorLast() {
+		return new MyIterator<T>(this.last);
+	}
+	
 }

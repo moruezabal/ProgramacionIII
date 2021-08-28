@@ -4,14 +4,28 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		System.out.println(esCapicua("neuquen"));
-//		MySimpleLinkedList<Integer> listaNum1 = new MySimpleLinkedList<Integer>();
-//		for(int i = 0; i < 5; i++) {
-//			int random = (int)Math.floor(Math.random()*9);
-//			System.out.println(random);
-//			listaNum1.insertLast(random);
-//		}
-//		System.out.println(listaNum1.toString());
+		MySimpleLinkedList<Integer> listaNum1 = new MySimpleLinkedList<Integer>();
+		for(int i = 0; i < 6; i++) {
+			listaNum1.insertLast((int)Math.floor(Math.random()*9));
+		}
+		System.out.println(listaNum1.toString());
+		System.out.println(esCapicua(listaNum1));
+		
+		MySimpleLinkedList<Integer> listaNum2 = new MySimpleLinkedList<Integer>();
+		
+		listaNum2.insertLast(2);
+		listaNum2.insertLast(3);
+		listaNum2.insertLast(8);
+		listaNum2.insertLast(5);
+		listaNum2.insertLast(8);
+		listaNum2.insertLast(3);
+		listaNum2.insertLast(2);
+		
+		System.out.println(listaNum2.toString());
+		System.out.println(esCapicua(listaNum2));
+		
+//		System.out.println(esCapicua("neuquen"));
+
 //		System.out.println(listaNum1.toStringReverse());
 		
 //		MySimpleLinkedList<Integer> listaNum2 = new MySimpleLinkedList<Integer>();
@@ -82,7 +96,18 @@ public class Main {
 	}
 	
 	public static boolean esCapicua(MySimpleLinkedList<Integer> list) {
-		return false;
+		MyIterator<Integer> it1 = list.iterator();
+		MyIterator<Integer> it2 = list.iteratorLast();
+		
+		if(list.isEmpty())
+			return false;
+		
+		for (int i = 1; i <= list.size()/2; i++) {
+			if (it1.next() != it2.previous())
+				return false;
+			
+		}
+		return true;
 	}
 	
 	public static boolean esCapicua(String palabra) {
