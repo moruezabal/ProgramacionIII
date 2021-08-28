@@ -3,15 +3,16 @@ package tp1;
 public class Main {
 
 	public static void main(String[] args) {
-			
-		MySimpleLinkedList<Integer> listaNum1 = new MySimpleLinkedList<Integer>();
-		for(int i = 0; i < 5; i++) {
-			int random = (int)Math.floor(Math.random()*9);
-			System.out.println(random);
-			listaNum1.insertLast(random);
-		}
-		System.out.println(listaNum1.toString());
-		System.out.println(listaNum1.toStringReverse());
+		
+		System.out.println(esCapicua("neuquen"));
+//		MySimpleLinkedList<Integer> listaNum1 = new MySimpleLinkedList<Integer>();
+//		for(int i = 0; i < 5; i++) {
+//			int random = (int)Math.floor(Math.random()*9);
+//			System.out.println(random);
+//			listaNum1.insertLast(random);
+//		}
+//		System.out.println(listaNum1.toString());
+//		System.out.println(listaNum1.toStringReverse());
 		
 //		MySimpleLinkedList<Integer> listaNum2 = new MySimpleLinkedList<Integer>();
 //		for(int i = 0; i < 5; i++) {
@@ -78,5 +79,22 @@ public class Main {
 			it2 = l2.iterator();
 		}
 		return result;
+	}
+	
+	public static boolean esCapicua(MySimpleLinkedList<Integer> list) {
+		return false;
+	}
+	
+	public static boolean esCapicua(String palabra) {
+		int i = 0;
+		int j = palabra.length() -1;
+		while(i<j) {
+			if(palabra.charAt(i) != palabra.charAt(j)) {
+				return false;
+			}
+			i++;
+			j--;
+		}
+		return true;
 	}
 }
