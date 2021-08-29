@@ -16,6 +16,8 @@ public class Main {
 		
 //		int [] numbers = {2,4,5,7,9}; 
 //		System.out.println(findElementORD(numbers, 7));
+		
+		System.out.println(toBinary(82,""));
 	}
 	
 	public static boolean estaOrdenado(int array[]) {
@@ -84,6 +86,16 @@ public class Main {
 		}
 		
 		return find;
+	}
+	
+	private static String toBinary(int decimal, String binary) {
+		
+		if (decimal>0) {
+			binary += decimal % 2;
+			decimal = (int)decimal/2;
+			binary = toBinary(decimal, binary);
+		}
+		return binary;
 	}
 	
 	
