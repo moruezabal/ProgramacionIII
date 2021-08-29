@@ -7,13 +7,15 @@ public class Main {
 //		int [] numeros = {3,3,4,6,9}; 
 //		System.out.println(estaOrdenado(numeros));
 		
-		MySimpleLinkedList<Integer> listaNum1 = new MySimpleLinkedList<Integer>();
-		for(int i = 0; i < 10; i++) {
-			listaNum1.insertLast((int)Math.floor(Math.random()*9));
-		}
-		System.out.println(listaNum1.toString());
+//		MySimpleLinkedList<Integer> listaNum1 = new MySimpleLinkedList<Integer>();
+//		for(int i = 0; i < 10; i++) {
+//			listaNum1.insertLast((int)Math.floor(Math.random()*9));
+//		}
+//		System.out.println(listaNum1.toString());
+//		System.out.println(findElementIT(listaNum1,4));
 		
-		System.out.println(findElementIT(listaNum1,4));
+//		int [] numbers = {2,4,5,7,9}; 
+//		System.out.println(findElementORD(numbers, 7));
 	}
 	
 	public static boolean estaOrdenado(int array[]) {
@@ -43,6 +45,23 @@ public class Main {
 				find = findElement(list, num, index+1);
 			else
 				find = index;
+		}
+		return find;
+	}
+	
+	public static int findElementORD(int [] arr, int num) {
+		return findElementORD(arr, num, 0);
+	}
+	
+	private static int findElementORD(int [] arr, int num, int index) {
+		int find = -1;
+		if(index < arr.length) {
+			if (arr[index] == num){
+				find = index;
+			}
+			else if (arr[index] < num) {
+				find = findElementORD(arr, num, index+1);
+			}
 		}
 		return find;
 	}
