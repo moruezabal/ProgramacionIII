@@ -88,12 +88,16 @@ public class Main {
 		return find;
 	}
 	
+	public static int toBinary(int decimal) {
+		return Integer.parseInt(toBinary(decimal, ""));
+	}
+	
 	private static String toBinary(int decimal, String binary) {
 		
+		binary = String.valueOf(decimal % 2);
+		decimal = (int)decimal/2;
 		if (decimal>0) {
-			binary += decimal % 2;
-			decimal = (int)decimal/2;
-			binary = toBinary(decimal, binary);
+			binary += toBinary(decimal, binary);
 		}
 		return binary;
 	}
