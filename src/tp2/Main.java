@@ -93,8 +93,16 @@ public class Main {
 	}
 	
 	private static String toBinary(int decimal, String binary) {
+<<<<<<< HEAD
 		if (decimal>0) {
 			binary = toBinary((int)decimal/2, binary) + String.valueOf(decimal % 2);;
+=======
+		
+		binary = String.valueOf(decimal % 2);
+		decimal = (int)decimal/2;
+		if (decimal>0) {
+			binary += toBinary(decimal, binary);
+>>>>>>> dcb80703f1e9f8981681862c274e988950c5c0d3
 		}
 		return binary;
 	}
