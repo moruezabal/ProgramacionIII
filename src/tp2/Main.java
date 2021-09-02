@@ -17,17 +17,24 @@ public class Main {
 //		int [] numbers = {2,4,5,7,9}; 
 //		System.out.println(findElementORD(numbers, 7));
 		
-//		System.out.println(toBinary(92));
+		System.out.println(toBinary(14));
 		
-		int [] numbers = {5,8,1,7,0,3};
-		quicksort(numbers);
-		for (int number : numbers)
-			System.out.print(number + " ");
+//		int [] numbers = {5,8,1,7,0,3};
+//		quicksort(numbers);
+//		for (int number : numbers)
+//			System.out.print(number + " ");
+		
+//		long T1 = System.currentTimeMillis();	
+//		for(int i = 0; i<10000;i++) {
+//			seleccion(createArrNumRandom(10000));
+//		}
+//		long T2 = System.currentTimeMillis();
+//		System.out.println(T2-T1);
+
 	}
 	
 	public static boolean estaOrdenado(int array[]) {
 		return estaOrdenado(array, 0);
-		
 	}
 	
 	private static boolean estaOrdenado(int array[], int index) {
@@ -93,15 +100,13 @@ public class Main {
 		return find;
 	}
 	
-	public static int toBinary(int decimal) {
-		return Integer.parseInt(toBinary(decimal, ""));
-	}
-	
-	private static String toBinary(int decimal, String binary) {
+	public static String toBinary(int decimal) {
 		if (decimal>0) {
-			binary = toBinary((int)decimal/2, binary) + String.valueOf(decimal % 2);;
+			return toBinary((int)decimal/2) + String.valueOf(decimal % 2);
 		}
-		return binary;
+		else {
+			return "";
+		}
 	}
 	
 	public static void burbujeo(int[] A) { // O(n2)
@@ -247,6 +252,15 @@ public class Main {
 	      quicksort(A,izq,j-1);          // ordenamos subarray izquierdo
 	   if(j+1 < der)
 	      quicksort(A,j+1,der);          // ordenamos subarray derecho
+	}
+	
+	public static int [] createArrNumRandom( int size) {
+		int [] arr = new int[size];
+		
+		for (int i = 0; i<size; i++)
+			arr[i] = (int)Math.floor(Math.random()*9);
+		
+		return arr;
 	}
 
 }
