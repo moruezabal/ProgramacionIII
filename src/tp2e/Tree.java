@@ -29,5 +29,67 @@ public class Tree {
 			}
 		}
 	}
+	
+	public int getRoot() {
+		//TO DO
+		return 0;
+	}
+	
+	public boolean hasElem(int elem) {
+		//TO DO
+		return false;
+	}
+	
+	public boolean isEmpty() {
+		//TO DO
+		return false;
+	}
+	
+	public boolean delete(int value) {
+		//TO DO
+		return false;
+	}
+	
+	public int getHeight() {
+		//TO DO
+		return 0;
+	}
+	
+	public void printPosOrder() {
+		//TO DO
+	}
+	
+	public void printPreOrder() {
+		//TO DO
+	}
+	
+	public void printInOrder() {
+		//TO DO
+	}
+	
+	public int[] getLongestBranch() {
+		int [] list = {};
+		//TO DO
+		return list;
+	}
+
+	public int[] getFrontera() {
+		int [] list = {};
+		//TO DO
+		return list;
+	}
+	
+	public int getMaxElem() {
+		return 0;
+	}
+	
+	public int[] getElemAtLevel(int level) {
+		int [] list = {};
+		//TO DO
+		return list;
+	}
+	
+	
+	
 
 }
