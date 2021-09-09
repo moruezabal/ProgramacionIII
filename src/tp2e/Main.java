@@ -19,6 +19,7 @@ public class Main {
 		pine.printPreOrder();
 		System.out.println("");
 		pine.printInOrder();
+		System.out.println(pine.getMaxElem());
 
 	}
 

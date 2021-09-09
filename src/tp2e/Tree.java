@@ -116,7 +116,10 @@ public class Tree {
 	}
 	
 	public int getMaxElem() {
-		return 0;
+		if(this.right != null) {
+			return this.right.getMaxElem();
+		}
+		return this.value;
 	}
 	
 	public int[] getElemAtLevel(int level) {
