@@ -31,18 +31,36 @@ public class Tree {
 	}
 	
 	public int getRoot() {
-		//TO DO
-		return 0;
+		return this.value;
 	}
 	
 	public boolean hasElem(int elem) {
-		//TO DO
-		return false;
+		if (this.value == null)
+			return false;
+		else {
+			if(this.value == elem)
+				return true;
+			else if(this.value > elem) {
+				if(this.left != null) {
+					return this.left.hasElem(elem);
+				}
+				else {
+					return false;
+				}	
+			}
+			else {
+				if(this.right != null) {
+					return this.right.hasElem(elem);
+				}
+				else {
+					return false;
+				}
+			}
+		}
 	}
 	
 	public boolean isEmpty() {
-		//TO DO
-		return false;
+		return this.value == null;
 	}
 	
 	public boolean delete(int value) {
