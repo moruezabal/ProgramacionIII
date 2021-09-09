@@ -1,7 +1,5 @@
 package tp2e;
 
-import java.util.ArrayList;
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -14,23 +12,38 @@ public class Main {
 		pine.add(2);
 		pine.add(4);
 		pine.add(1);
-		pine.add(10);
+		pine.add(20);
+		pine.add(15);
+		pine.add(25);
+		
 		
 		
 		pine.printInOrder();
 		System.out.println("");
 		
-		ArrayList<Integer> leaves = pine.getFrontera(); 
+		System.out.println(pine.delete(25));
 		
-		for(int leaf : leaves)
-			System.out.print(leaf + " ");
 		
-		System.out.println(" ");
+		pine.printInOrder();
+		System.out.println("");
 		
-		ArrayList<Integer> level2 = pine.getElemAtLevel(2);
 		
-		for(int elem : level2)
-			System.out.print(elem + " ");
+	
+		
+		
+//		ArrayList<Integer> leaves = pine.getFrontera(); 
+//		
+//		for(int leaf : leaves)
+//			System.out.print(leaf + " ");
+//		
+//		System.out.println(" ");
+//		
+//		ArrayList<Integer> level2 = pine.getElemAtLevel(2);
+//		
+//		for(int elem : level2)
+//			System.out.print(elem + " ");
+	
+		
 	}
 
 }

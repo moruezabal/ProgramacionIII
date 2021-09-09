@@ -37,6 +37,7 @@ public class Tree {
 	}
 	
 	public boolean hasElem(int elem) {
+		
 		if (this.value == null)
 			return false;
 		else {
@@ -61,14 +62,74 @@ public class Tree {
 		}
 	}
 	
+	public Tree findTree(int value) {
+		Tree arbolito = null;
+        if (!this.isEmpty()) {
+            if (value == this.value)
+            	return this;
+            else {
+                if (value < this.value) {
+                	if (this.left !=null)
+                		arbolito = this.left.findTree(value);
+                }
+                    
+                else 
+                	if (this.right !=null)
+                		arbolito = this.right.findTree(value);
+            }
+        }
+        return arbolito;
+	}
+	
 	public boolean isEmpty() {
 		return this.value == null;
 	}
 	
-	public boolean delete(int value) {
-		//TO DO
-		return false;
+	public boolean delete(int deleteValue) {
+		if (!this.hasElem(deleteValue))
+			return false;
+		else {
+			if(this.value > deleteValue) {
+				if(this.left != null) {
+					if(this.left.value == deleteValue) {
+						if(this.left.isLeaf()) {
+							this.left = null;
+							return true;
+						}
+					}
+					else
+						this.left.delete(deleteValue);
+				}
+			} else if(this.value < deleteValue) {
+				if(this.right != null) {
+					if(this.right.value == deleteValue) {
+						if(this.right.isLeaf()) {
+							this.right = null;
+							return true;
+						}
+					}
+					else
+						this.right.delete(deleteValue);
+				}
+			} else { 
+				if(this.left != null && this.right != null ) {
+//					Tree temp = this;
+//	                Tree maxOfTheLeft = this.left.findPredecessor();
+//	                this.value = maxOfTheLeft.getValue();
+//	                temp.left = temp.left.delete(maxOfTheLeft.getValue());
+				}
+				else if(this.left != null) {
+					
+				}
+				else{ // this.right != null
+					
+				}
+			}
+		}
+			return true;
 	}
+	
+	
 	
 	public int getHeight() {
 		if (this.isEmpty()) 
