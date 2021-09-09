@@ -115,12 +115,15 @@ public class Tree {
 		}
 	}
 	
-	public int[] getLongestBranch() {
-		int [] list = {};
-		//TO DO
-		return list;
+	public ArrayList<Integer> getLongestBranch() {
+		return this.getLongestBranch(new ArrayList<Integer>());
 	}
-
+	
+	private ArrayList<Integer> getLongestBranch(ArrayList<Integer> largest) {
+		
+		return largest;
+	}
+	
 	public ArrayList<Integer> getFrontera() {
 		return getFrontera(new ArrayList<Integer>());
 	}
@@ -145,7 +148,7 @@ public class Tree {
 		return leaves;
 	}
 	
-	 private boolean isLeaf() {
+	private boolean isLeaf() {
 	        boolean leaf = false;
 	        if( this.left == null && this.right == null) {
 	            leaf = true;
@@ -160,12 +163,31 @@ public class Tree {
 		return this.value;
 	}
 	
-	public int[] getElemAtLevel(int level) {
-		int [] list = {};
-		//TO DO
-		return list;
+	public ArrayList<Integer> getElemAtLevel(int level) {
+		return getElemAtLevel(level, new ArrayList<Integer>());
 	}
 	
+	private ArrayList<Integer> getElemAtLevel(int level, ArrayList<Integer> elements){
+		
+		if (!this.isEmpty()) {
+			if (level == 0) {
+				elements.add(this.value);
+			}
+			else {
+				if(this.left != null && this.right != null) {
+					this.left.getElemAtLevel(level-1, elements);
+					this.right.getElemAtLevel(level-1, elements);
+				}
+				else if(this.left != null) {
+					this.left.getElemAtLevel(level-1, elements);
+				}
+				else {
+					this.right.getElemAtLevel(level-1, elements);
+				}
+			}	
+		}
+		return elements;
+	}
 	
 	
 

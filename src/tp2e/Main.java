@@ -24,6 +24,13 @@ public class Main {
 		
 		for(int leaf : leaves)
 			System.out.print(leaf + " ");
+		
+		System.out.println(" ");
+		
+		ArrayList<Integer> level2 = pine.getElemAtLevel(2);
+		
+		for(int elem : level2)
+			System.out.print(elem + " ");
 	}
 
 }
