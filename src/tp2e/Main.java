@@ -20,6 +20,8 @@ public class Main {
 		System.out.println("");
 		pine.printInOrder();
 		System.out.println(pine.getMaxElem());
+		
+		System.out.println(pine.getHeight());
 
 	}
 

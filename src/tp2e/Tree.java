@@ -69,8 +69,18 @@ public class Tree {
 	}
 	
 	public int getHeight() {
-		//TO DO
-		return 0;
+		if (this.isEmpty()) 
+            return 0;
+        else {
+        	if(this.left != null && this.right != null)
+        		return (1 + Math.max((this.left.getHeight()), (this.right.getHeight())));
+        	else if (this.left != null) 
+        		return (1 + this.left.getHeight());
+        	else if (this.right != null) 
+        		return (1 + this.right.getHeight());
+        	else
+        		return 1;
+        }
 	}
 	
 	public void printPosOrder() {
