@@ -1,5 +1,7 @@
 package tp2e;
 
+import java.util.ArrayList;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -14,15 +16,14 @@ public class Main {
 		pine.add(1);
 		pine.add(10);
 		
-		pine.printPosOrder();
-		System.out.println("");
-		pine.printPreOrder();
-		System.out.println("");
-		pine.printInOrder();
-		System.out.println(pine.getMaxElem());
 		
-		System.out.println(pine.getHeight());
-
+		pine.printInOrder();
+		System.out.println("");
+		
+		ArrayList<Integer> leaves = pine.getFrontera(); 
+		
+		for(int leaf : leaves)
+			System.out.print(leaf + " ");
 	}
 
 }

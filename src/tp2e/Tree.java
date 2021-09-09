@@ -1,5 +1,7 @@
 package tp2e;
 
+import java.util.ArrayList;
+
 public class Tree {
 
 	private Integer value;
@@ -119,11 +121,37 @@ public class Tree {
 		return list;
 	}
 
-	public int[] getFrontera() {
-		int [] list = {};
-		//TO DO
-		return list;
+	public ArrayList<Integer> getFrontera() {
+		return getFrontera(new ArrayList<Integer>());
 	}
+	
+	private ArrayList<Integer> getFrontera(ArrayList<Integer> leaves) {
+		if(!this.isEmpty()) {
+			if(this.isLeaf())
+				leaves.add(this.value);
+			else if (this.left != null && this.right != null){
+				ArrayList<Integer> leavesLeft = this.left.getFrontera(new ArrayList<Integer>());
+				ArrayList<Integer> leavesRight = this.right.getFrontera(new ArrayList<Integer>());
+				leavesLeft.addAll(leavesRight);
+				leaves.addAll(leavesLeft);
+			} else if (this.left != null) {
+				ArrayList<Integer> leavesLeft = this.left.getFrontera(new ArrayList<Integer>());
+				leaves.addAll(leavesLeft);
+			} else {
+				ArrayList<Integer> leavesRight = this.right.getFrontera(new ArrayList<Integer>());
+				leaves.addAll(leavesRight);
+			}
+		}
+		return leaves;
+	}
+	
+	 private boolean isLeaf() {
+	        boolean leaf = false;
+	        if( this.left == null && this.right == null) {
+	            leaf = true;
+	        }
+	        return leaf;
+	    }
 	
 	public int getMaxElem() {
 		if(this.right != null) {
