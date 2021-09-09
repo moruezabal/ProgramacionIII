@@ -74,15 +74,33 @@ public class Tree {
 	}
 	
 	public void printPosOrder() {
-		//TO DO
+		if(!isEmpty()) {
+			if(this.left != null)
+				this.left.printPosOrder();
+			if(this.right != null)
+				this.right.printPosOrder();
+			System.out.print(this.value + " ");
+		}
 	}
 	
 	public void printPreOrder() {
-		//TO DO
+		if(!isEmpty()) {
+			System.out.print(this.value + " ");
+			if(this.left != null)
+				this.left.printPosOrder();
+			if(this.right != null)
+				this.right.printPosOrder();	
+		}
 	}
 	
 	public void printInOrder() {
-		//TO DO
+		if(!isEmpty()) {
+			if(this.left != null)
+				this.left.printPosOrder();
+			System.out.print(this.value + " ");
+			if(this.right != null)
+				this.right.printPosOrder();	
+		}
 	}
 	
 	public int[] getLongestBranch() {
